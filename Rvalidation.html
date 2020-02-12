@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Registration</title>
+        <script type="text/javascript">
+        function validate()
+        {
+            var correct_way = /^[A-Za-z]+$/;
+            var a = document.getElementById("uid").value;
+            var b = document.getElementById("pass").value;
+            var c = document.getElementById("email").value;
+            var d = document.getElementById("no").value;
+
+            var radio1 = document.getElementById("male").checked;
+            var radio2 = document.getElementById("female").checked;
+           
+            if(a=="")
+            {
+                document.getElementById("message").innerHTML="* please fill user name";
+                return false;
+            }
+            if(a.length<3){
+                document.getElementById("message").innerHTML="* username must ber greater than 3 characters";
+                return false;
+            }
+            if(a.length>20){
+                document.getElementById("message").innerHTML="* username must be less than 20 characters";
+                return false;
+            }           
+            if(a.match(correct_way))
+            true;
+            else{
+                document.getElementById("message").innerHTML="* only alphabets are allowed";
+                return false;
+            }
+            if(b=="")
+            {
+                document.getElementById("msg").innerHTML="* please fill password";
+                return false;
+            }
+            if(b.length<8){
+                document.getElementById("msg").innerHTML="* Password must ber greater than 8 characters";
+                return false;
+            }
+            if(c=="")
+            {
+                document.getElementById("msg2").innerHTML="* please fill emailid";
+                return false;
+            }
+            if(d=="")
+            {
+                document.getElementById("msg3").innerHTML="* please fill mobileno";
+                return false;
+            }
+            if(d.length!=10){
+                document.getElementById("msg3").innerHTML="* please fill 10 numbers";
+                return false;
+            }
+            if((radio1=="")&&(radio2=="")){
+                document.getElementById("msg4").innerHTML="* select anyone";
+                return false;
+            }
+            return true;
+        }
+        </script>
+    </head>
+    <body>
+        
+        <form  action="index.html" onsubmit="return validate()" method="POST">
+            <h1>Registration form</h1><hr>
+           Username : <input type="text" id="uid" value="">
+           <span id="message" style="color: red;"></span> 
+           <br><br>
+           Password : <input type="password" id="pass" value="">
+           <span id="msg" style="color: red;"></span> 
+           <br><br>
+           Email : <input type="email" id="email" value="">
+           <span id="msg2" style="color:red"></span> 
+           <br><br>
+           Mobile_no : <input type="number" id="no" value="">
+           <span id="msg3" style="color: red;"></span> 
+           <br><br>
+           Gender : <input type="radio" id="male" name="container" value=""> Male
+                    <input type="radio" id="female"  name="container" value=""> Female
+            <span id="msg4" style="color: red;"></span> 
+            <br><br>
+
+           <input type="submit" value="SUBMIT" >
+        </form>
+    
+    </body>
+</html>
