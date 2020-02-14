@@ -52,6 +52,22 @@
                 document.getElementById("msg3").innerHTML="* please fill mobileno";
                 return false;
             }
+            if(isNaN(d)){
+                    docunemt.getElementById("msg3").innerHTML="*enter only numeric value";
+                    return false;
+                }
+                if(d.length<10){
+                    document.getElementById("msg3").innerHTML="**mobile_no must be 10 digit";
+                    return false;
+                }
+                if(d.length>10){
+                    document.getElementById("msg3").innerHTML="**mobile_no are also must be 10 digit";
+                    return false;
+                }
+                if((d.charAt(0)!=9) && (d.charAt(0)!=8) && (d.charAt(0)!=7)){
+                    document.getElementById("msg3").innerHTML="*mob_no must start with 9,8 and 7";
+                    return false;
+                }
             if(d.length!=10){
                 document.getElementById("msg3").innerHTML="* please fill 10 numbers";
                 return false;
